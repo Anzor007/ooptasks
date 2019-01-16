@@ -64,7 +64,9 @@ var c = new Course('prevedD medvedD', t);
 c.questions = t; //set
 console.log(" --1-c-\n", c.questions);  //get
 console.log(" --2-c-\n" + c); //instance
-console.debug(JSON.stringify(c, null, 1));
+//console.debug(JSON.stringify(c, null, 1));
+console.log(JSON.stringify(c, null, 1));
+
 /*
 class Answer { // класс ответов
     constructor (name) {
