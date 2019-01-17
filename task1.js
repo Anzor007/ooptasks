@@ -76,12 +76,6 @@ console.log(c);
 console.log(JSON.stringify(c, null, 4));                            //console.debug(JSON.stringify(c, null, 1));
 
 
-
-
-
-
-
-
 /*
 class Answer { // класс ответов
     constructor (name) {
