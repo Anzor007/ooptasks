@@ -1,33 +1,35 @@
 //var pick01 = require('./test_01.js');
 
 
-class Question { //класс вопросов
+class Question {                            //класс вопросов
 
-    constructor (question,answersOk) {
+    constructor (question, answersOk, answersNo) {
 
         this.question = question;
-        this.answersNo = [];
+        this.answersNo = [answersNo];
         this.answersOk = [answersOk];
+
     }
+
     addAnswer(answer, isTrue) {
 
         isTrue ? this.answersOk.push(answer) : this.answersNo.push(answer) ;
 
     }
+
 };
 
-var q = new Question('chto za fignya 1','nifiga');
-q.addAnswer("chiconya", 0);
-q.addAnswer("chico", 1);
-q.addAnswer("chnya", 1);
-q.addAnswer("chiconya", 0);
-q.addAnswer("chiconya", 0);
-q.addAnswer("chiconya", 0);
+var q = new Question('questi_0', 'ansOk_0', 'ansNo_0');             //console.log(q);
 
+q.addAnswer("ansNo_1", 0);      
+q.addAnswer("ansOk_1", 1);
+q.addAnswer("ansNo_2", 0);      
+q.addAnswer("ansOk_2", 1);
+q.addAnswer("ansNo_3", 0);
+q.addAnswer("ansNo_4", 0);                                          //console.log("-- Object Qwestion ---\n",Object.keys(q));
 console.log(q);
-console.log("-------\n",Object.keys(q));
 
-class Theme { // класс тем
+class Theme {                                                       // класс темa
 
     constructor(theme, question) {
 
@@ -36,20 +38,27 @@ class Theme { // класс тем
 
     }
 
-    get questions() {       //получаем знач
-        return this.question;
-    }
-    set questions(question) {   //устанавливаем значение
-        this.question.push(question);
-    }
-    //set question
-};
-var t = new Theme('tema pampers', q);
-t.questions = q; //set
-console.log(" --1-t-\n", t.questions);  //get
-console.log(" --2-t-\n", t); //instance
+    get questions() {                       
 
-class Course extends Theme { //класс курса
+        return this.question;
+
+    }
+
+    set questions(question) {                                       //устанавливаем значение
+
+        this.question.push(question);
+
+    }
+    
+};
+
+var t = new Theme('Theme 0', q);                                    //console.log("t 1 = ",t);
+
+t.questions = q;                                                    //console.log("t 2 = ", t);                   
+t.questions = q;                                                    //console.log("-- Object Theme ---\n",Object.keys(t));
+console.log(t);
+
+class Course extends Theme {                                        //класс курсa
 
     constructor (course, theme) {
 
@@ -59,13 +68,19 @@ class Course extends Theme { //класс курса
 
 };
 
-var c = new Course('prevedD medvedD', t);
+var c = new Course('Cours_0', t);
 
-c.questions = t; //set
-console.log(" --1-c-\n", c.questions);  //get
-console.log(" --2-c-\n" + c); //instance
-//console.debug(JSON.stringify(c, null, 1));
-console.log(JSON.stringify(c, null, 1));
+c.questions = t;                                                    //console.log(" --1-c-\n", c.questions);              //get
+
+console.log(c);                      
+console.log(JSON.stringify(c, null, 4));                            //console.debug(JSON.stringify(c, null, 1));
+
+
+
+
+
+
+
 
 /*
 class Answer { // класс ответов
