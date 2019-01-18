@@ -1,3 +1,4 @@
+// @ts-nocheck
 //var pick01 = require('./test_01.js');
 
 
