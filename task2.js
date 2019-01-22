@@ -6,13 +6,14 @@ var Reseller = require("./classresellertask2");
 var maker = new Maker();
 var client = new Client();
 var reseller = new Reseller();
-
-for (var  numberDay = 0; numberDay < 10; numberDay++) {
+const COUNT_DAY = 10;
+for (var  numberDay = 0; numberDay < COUNT_DAY; numberDay++) {
 	maker.producedOneDay(numberDay);
 	client.needOneDay(numberDay); 
-	reseller.transmit(client.generatedNeeds[numberDay], maker.generatedMaked[numberDay]); 
-	maker.balanseOneDay(numberDay, reseller.transfer[numberDay]); 
-	client.balanseOneDay(numberDay, reseller.transfer[numberDay]);   
+	reseller.transmit(client.generatedNeeds[numberDay], maker.generatedMaked[numberDay]);
+	maker.balanseOneDay(numberDay, reseller.transfer[numberDay]);
+	client.balanseOneDay(numberDay, reseller.transfer[numberDay]);
+	reseller.kpd(numberDay);
 }
 
 console.table(maker);       // console.log(maker);
