@@ -1,17 +1,13 @@
 var randOneDay = require('./functask2');
 
 class MyClient {
-    // #maxNeed = 120;
-    constructor (nameClient, generatedNeeds) {
-        this.nameClient = [];
+    constructor () {
+        //this.nameClient = [];
         this._maxNeed = 120;
         this._minNeed = 70;
         this.generatedNeeds = [];
         this.balanseClient = [0];
-       
     }
-   
-    
     needOneDay(i) {
         this.generatedNeeds.push(randOneDay(this._maxNeed, this._minNeed) + this.balanseClient[i]);
         /*
@@ -22,8 +18,8 @@ class MyClient {
         console.log("со вчера = ", this.balanseClient[j]);
         */
     }
-    balanseOneDay(genaClient, transferMaker) {
-        this.balanseClient.push(genaClient - transferMaker);
+    balanseOneDay(j, transferMaker) {
+        this.balanseClient.push(this.generatedNeeds[j] - transferMaker);
     }
 };
 module.exports = MyClient;
