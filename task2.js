@@ -25,12 +25,23 @@ for (var  numberDay = 0; numberDay < COUNT_DAY; numberDay++) {
 	reseller.kpd();										// [6] КПД посредника
 }
 
-//console.log(maker);
-//console.log(client);
-//console.log(reseller);
+var ObjectforPrint = {};
+ObjectforPrint.maker = maker.producedAll;
+ObjectforPrint.client = client.NeedAll;
+ObjectforPrint.reseller = reseller.transfer;
+ObjectforPrint.maker3D = maker.producedThreeDay;
+ObjectforPrint.reseller3D = reseller.transferThreeDay;
+ObjectforPrint.kpd = reseller.kpdReseller;
+console.table(ObjectforPrint);
+/*
+console.log(maker);
+console.log(client);
+console.log(reseller);
+*/
+/*
 console.table(maker);
 console.table(client);
 console.table(reseller);
-
+*/
 
 
