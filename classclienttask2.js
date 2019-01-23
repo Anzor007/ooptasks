@@ -1,4 +1,4 @@
-var randOneDay = require('./functask2');
+ var randOneDay = require('./functask2');
 
 class MyClient {
     constructor () {

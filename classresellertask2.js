@@ -33,8 +33,11 @@ class MyReseller {
         this.kpdReseller.push(this._tmp / this._maxTransfer);
     }
 
-    balans () {
-        (this.prodecedMAker == this._tmp) ? 0 : 
+    get balansforMaker () {
+        return this.prodecedMAker - this._tmp;
+    }
+    get balanseforClient () {
+        return this.needClient - this._tmp;
     }
 };
 
