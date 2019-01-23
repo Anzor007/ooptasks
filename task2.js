@@ -6,54 +6,49 @@ var Reseller = require("./classresellertask2");
 var maker = new Maker();
 var client = new Client();	
 var reseller = new Reseller();
-const COUNT_DAY = 3;
-var dd = [];
-var ttclient = [];
-var ttmaker = [];
+const COUNT_DAY = 10;
+var ddclient = [];		//delete
+var ttclient = [];		//delete
+var ttmaker = [];		//delete
+console.log("\n ========GO========== \n");	
 for (var  numberDay = 0; numberDay < COUNT_DAY; numberDay++) {
-	//var client = new Client();	
+	// ЗАМЫКАНИЕ!!! ???
+	//var client = new Client();
+	console.log("\n --- Maker ---");
 	maker.generated();
-	maker.balanseOneDay = 0;
+	maker.balanseOneDay = 10;
 	maker.balanses();
 	ttmaker = maker.producedAllDay;
 	console.log("ttmaker = ", ttmaker, numberDay+1);	// колличество необходимого потребителю товара
-
-	console.log("\n");
 	maker.threeDay();
-	console.log("\n");
-
+	
+	console.log("\n --- Client ---");
 	client.generated();
 	console.log("client.balanseOneDay = ", client.balanseOneDay = 7 ); //set 
 	client.balanses();
-	console.log("client.needOneDay = ", client.needAllDay); //get
+	console.log("getter client.needOneDay = ", client.needAllDay); //get
 	ttclient = client.needAllDay;				// колличество необходимого потребителю товара
 	console.log("ttclient = ", ttclient, numberDay+1);	// колличество необходимого потребителю товара
-	dd.push(client);
+	ddclient.push(client);	//delete
 
-		
-	/*maker.producedOneDay(numberDay);
-	client.needOneDay(numberDay); 
-	reseller.transmit(client.generatedNeeds[numberDay], maker.generatedMaked[numberDay]);
-	maker.balanseOneDay(numberDay, reseller.transfer[numberDay]);
-	client.balanseOneDay(numberDay, reseller.transfer[numberDay]);
-	reseller.kpd(numberDay);
 
-	const sum = reseller.transfer
-		.filter(item => {
 
-		})
-		.reduce((acc, item, index) => {
-			return acc + item;
-		}, 0);
-		*/
+	console.log("\n --- Reseller ---");
+	console.log("\n");
+	reseller.fromClient = client.needAllDay;
+	reseller.fromMaker = maker.producedAllDay;
+	reseller.transmit();
+	reseller.threeDey();
+	reseller.kpd();
+
 }
 
 // console.table(maker);       
-console.log("maker  =\n", maker);
+console.log("\nmaker  =\n", maker);
 // console.table(client);      
-console.log("client =\n", client);
+console.log("\nclient =\n", client);
 // console.table(reseller);    
-// console.log("reseller =\n", reseller);
-// console.table(dd);
-// console.log("dd = \n", dd);
+console.log("\nreseller =\n", reseller);
+// console.table(ddclient);
+// console.log("ddclient = \n", ddclient);
 
