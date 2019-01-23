@@ -19,7 +19,7 @@ class MyMaker {
     balanses () {
         this.producedAll.push(this._tmp + this.balanseMaker);
     }
-    //  [4] кол-ва произведенного товара за последние 3 дня
+    // [4] кол-ва произведенного товара за последние 3 дня
     threeDay () {
         var sumThreeDay = this.generatedMaked.slice(-3).reduce((a,  b) => (a + b), 0);
         this.producedThreeDay.push(sumThreeDay);

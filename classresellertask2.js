@@ -16,7 +16,7 @@ class MyReseller {
     }
     // возможности производителя
     set fromMaker (dataMaker) {
-        this.prodecedMAker = dataMaker
+        this.prodecedMAker = dataMaker;
     }
     // [5] количество доставленного товара за последние 3 дня
     threeDey () {
@@ -32,10 +32,11 @@ class MyReseller {
     kpd () {
         this.kpdReseller.push(this._tmp / this._maxTransfer);
     }
-
+    // Остаток для производителя
     get balansforMaker () {
         return this.prodecedMAker - this._tmp;
     }
+    // Недовоз клиенту
     get balanseforClient () {
         return this.needClient - this._tmp;
     }

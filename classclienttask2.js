@@ -24,7 +24,6 @@ class MyClient {
     }
     // надо подумать
     get needAllDay () {
-        //return this.generatedNeeds.slice(-1);         // ???
         return this.NeedAll.slice(-1);                  // slice(-1) ???
     }
 };
