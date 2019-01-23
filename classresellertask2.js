@@ -9,8 +9,8 @@ class MyReseller {
     transmit (countClient, countReseller) {
        this.transfer.push(Math.min(...[countReseller, countClient, this._maxTransfer]));
     }
-    kpd (i) {
-        this.kpdReseller.push(this.transfer[i] / this._maxTransfer);
+    kpd (numDayi) {
+        this.kpdReseller.push(this.transfer[numDayi] / this._maxTransfer);
     }
 };
 

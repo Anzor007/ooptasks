@@ -2,17 +2,29 @@ var randOneDay = require('./functask2');
 
 class MyClient {
     constructor () {
-        //this.nameClient = [];
-        this._maxNeed = 120;
-        this._minNeed = 70;
-        this.generatedNeeds = [];
-        this.balanseClient = [0];
+        this._maxNeed = 120;        // максимум необходимой продукции
+        this._minNeed = 70;         // минимум необходимой продукции
+        this._tmp ;
+        this.generatedNeeds = [];   // кол-во необходимой продукции
+        this.balanseClient = 0;     // недобор продукции
+        this.NeedAll = [];          // кол-во необходимой продукции с недобором
     }
-    needOneDay(i) {
-        this.generatedNeeds.push(randOneDay(this._maxNeed, this._minNeed) + this.balanseClient[i]);
+    // вычисление кол-ва необходимой продукции на текущий день
+    generated () {
+        this._tmp = randOneDay(this._maxNeed, this._minNeed);
+        this.generatedNeeds.push(this._tmp);
     }
-    balanseOneDay(j, transferMaker) {
-        this.balanseClient.push(this.generatedNeeds[j] - transferMaker);
+    // вычисление кол-во необходимой продукции с недобором
+    balanses () {
+        this.NeedAll.push(this._tmp + this.balanseClient);
+    }
+    // 
+    set balanseOneDay (balanse) {
+        this.balanseClient = balanse;
+    }
+    // 
+    get needAllDay () {
+        return this.generatedNeeds;
     }
 };
 
